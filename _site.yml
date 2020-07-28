@@ -1,9 +1,11 @@
-name: "my-website"
+name: "Use UComp!"
 output_dir: "."
 navbar:
-  title: "My Website"
+  title: "Use Ucomp!"
   left:
     - text: "Home"
       href: index.html
-    - text: "About"
-      href: about.html
+output:
+  html_document:
+    theme: united
+    highlight: textmate

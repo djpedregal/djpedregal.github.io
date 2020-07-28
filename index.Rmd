@@ -1,5 +1,19 @@
 ---
-title: "My Website"
+title: "Use UComp!"
 ---
 
-Hello, Website!
+Here I am showing some examples run with package **UComp**.
+
+First, just load the library and some data (monthly Spanish industrial production index) from January 2000 to December 2019.
+
+```{r}
+library(UComp)
+load("ipi.Rdata")
+plot(y)
+```
+
+Probably the easiest way to play with **UComp** is by running just function UC, it creates and does all the typical operations of unobserved components modeling with just one function call. For example, the next code show how to plot the estimated components.
+```{r}
+m = UC(log(y))
+plot(m$comp)
+```

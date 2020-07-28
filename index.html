@@ -11,16 +11,16 @@
 
 
 
-<title>My Website</title>
+<title>Use UComp!</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -267,15 +267,12 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">My Website</a>
+      <a class="navbar-brand" href="index.html">Use Ucomp!</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
   <a href="index.html">Home</a>
-</li>
-<li>
-  <a href="about.html">About</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -289,12 +286,88 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">My Website</h1>
+<h1 class="title toc-ignore">Use UComp!</h1>
 
 </div>
 
 
-<p>Hello, Website!</p>
+<p>Here I am showing some examples run with package <strong>UComp</strong>.</p>
+<p>First, just load the library and some data (monthly Spanish industrial production index) from January 2000 to December 2019.</p>
+<pre class="r"><code>library(UComp)</code></pre>
+<pre><code>## Loading required package: Rcpp</code></pre>
+<pre class="r"><code>load(&quot;ipi.Rdata&quot;)
+plot(y)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Probably the easiest way to play with <strong>UComp</strong> is by running just function UC, it creates and does all the typical operations of unobserved components modeling with just one function call. For example, the next code show how to plot the estimated components.</p>
+<pre class="r"><code>m = UC(log(y))</code></pre>
+<pre><code>## ------------------------------------------------------------
+##  Identification started WITHOUT outlier detection
+## ------------------------------------------------------------
+##           Model                       AIC      BIC     AICc
+## ------------------------------------------------------------
+##        none/none/none/arma(0,0):  -0.9232  -0.9087  -0.9232
+##            none/none/equal/none:   1.0874   1.2614   1.0916
+##       none/none/equal/arma(0,0):  -0.8757  -0.6872  -0.8716
+##        none/none/different/none:  -1.2915  -1.0450  -1.2832
+##   none/none/different/arma(0,0):   0.3040   0.5650   0.3165
+##               rw/none/none/none:  -0.9093  -0.8948  -0.9093
+##          rw/none/none/arma(0,0):  -1.5781  -1.5491  -1.5781
+##              rw/none/equal/none:  -2.7012  -2.5127  -2.6971
+##         rw/none/equal/arma(0,0):  -2.8941  -2.6910  -2.8899
+##          rw/none/different/none:  -2.9335  -2.6724  -2.9210
+##     rw/none/different/arma(0,0):  -2.9660  -2.6905  -2.9535
+##              llt/none/none/none:  -0.8541  -0.8106  -0.8541
+##         llt/none/none/arma(0,0):  -1.5105  -1.4525  -1.5105
+##             llt/none/equal/none:  -2.6304  -2.4128  -2.6220
+##        llt/none/equal/arma(0,0):  -2.7279  -2.4958  -2.7195
+##         llt/none/different/none:  -2.8612  -2.5712  -2.8487
+##    llt/none/different/arma(0,0):  -2.8979  -2.5934  -2.8813
+##               dt/none/none/none:  -0.8775  -0.8340  -0.8775
+##          dt/none/none/arma(0,0):  -1.5390  -1.4810  -1.5390
+##              dt/none/equal/none:  -2.6771  -2.4596  -2.6688
+##         dt/none/equal/arma(0,0):  -2.7931  -2.5611  -2.7848
+##          dt/none/different/none:  -2.8835  -2.5934  -2.8710
+##     dt/none/different/arma(0,0):  -2.9496  -2.6450  -2.9329
+## ------------------------------------------------------------
+##   Identification time:    1.80694 seconds
+## ------------------------------------------------------------
+## -------------------------------------------------------------
+##   Concentrated Maximum-Likelihood
+##   Model: rw/none/different/arma(0,0)
+##   Periods:  12.0 /  6.0 /  4.0 /  3.0 /  2.4 /  2.0
+##   Q-Newton: Function convergence
+##   (*)  concentrated out parameter
+##  -------------------------------------------------------------
+##                       Param          |T|    P-value     |Grad| 
+##  -------------------------------------------------------------
+##         Level:     1.75e-04       0.1970     0.8440   4.28e-06
+##    Seas(12.0):     6.95e-07       1.8166     0.0706   1.25e-05
+##     Seas(6.0):     1.18e-06       1.7048     0.0896   6.83e-06
+##     Seas(4.0):     1.48e-06       1.6277     0.1050   1.61e-05
+##     Seas(3.0):     4.94e-05       0.5815     0.5615   1.66e-05
+##     Seas(2.4):     1.77e-05       0.8862     0.3764   2.61e-06
+##     Seas(2.0):     5.13e-07       1.8893     0.0601   5.09e-06
+##     Irregular:     3.34e-04*         nan        nan        nan
+##  -------------------------------------------------------------
+##    AIC:      -2.9660   BIC:      -2.6905   AICc:      -2.9535
+##             Log-Likelihood:     374.9221
+##  -------------------------------------------------------------
+##     Summary statistics:
+##  -------------------------------------------------------------
+##          Missing data:      
+##          Q( 1):       1.3210         Q( 4):       6.7459
+##          Q( 8):      14.2919         Q(12):      22.1627
+##    Bera-Jarque:      40.0486       P-value:       0.0000
+##        H(  78):       0.6898       P-value:       0.1031
+##    Outliers (&gt;2.7 ES):     4
+##          Q( 1):       2.8033         Q( 4):       7.8037
+##          Q( 8):      10.9585         Q(12):      33.8593
+##    Bera-Jarque:       2.1209       P-value:       0.3463
+##        H(  76):       0.7811       P-value:       0.2838
+##  -------------------------------------------------------------
+## </code></pre>
+<pre class="r"><code>plot(m$comp)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 
 
 

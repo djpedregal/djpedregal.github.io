@@ -342,7 +342,7 @@ plot(ipi)</code></pre>
 ##          dt/none/different/none:  -2.7054  -2.3845  -2.6862
 ##     dt/none/different/arma(0,0):  -2.7569  -2.4200  -2.7377
 ## ------------------------------------------------------------
-##   Identification time:    1.87464 seconds
+##   Identification time:    1.93341 seconds
 ## ------------------------------------------------------------
 ## -------------------------------------------------------------
 ##   Concentrated Maximum-Likelihood
@@ -381,7 +381,7 @@ plot(ipi)</code></pre>
 ## </code></pre>
 <pre class="r"><code>plot(m$comp)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>A different call, more complex, would be as follows (just one model is estimated, the forecasting horizon is fixed at 24 months, verbose output is avoided, see the full set of options in the documentation):</p>
+<p>A different call, more complex, would be as follows (just one model is estimated, the forecasting horizon is fixed at 24 months, verbose output is avoided, see the full set of options in the documentation). As can be easily seen, the diagnostics tests indicate that this model is completely inappropriate:</p>
 <pre class="r"><code>m = UC(log(ipi), model = &quot;rw/equal/arma(0,0)&quot;, h = 24, verbose = FALSE)</code></pre>
 <pre><code>## -------------------------------------------------------------
 ##   Concentrated Maximum-Likelihood
@@ -413,7 +413,7 @@ plot(ipi)</code></pre>
 ##        H(  66):       0.8748       P-value:       0.5883
 ##  -------------------------------------------------------------
 ## </code></pre>
-<p>Something that is very interesting in this case is the estimation with Easter and calendar effects (already loaded in matrix u) and with outlier detection:</p>
+<p>Something that is very interesting in this case is the estimation with Easter and calendar effects (already loaded in matrix u) and with outlier detection. Check out the diagnostics and now to see that this model is much more adequate:</p>
 <pre class="r"><code>m = UC(log(ipi), u = u, outlier = 4)</code></pre>
 <pre><code>## ------------------------------------------------------------
 ##  Identification started WITH outlier detection
@@ -444,7 +444,7 @@ plot(ipi)</code></pre>
 ##          dt/none/different/none:  -3.8007  -3.4317  -3.7719
 ##     dt/none/different/arma(0,0):  -3.8254  -3.4403  -3.7966
 ## ------------------------------------------------------------
-##   Identification time:    9.77831 seconds
+##   Identification time:    9.70494 seconds
 ## ------------------------------------------------------------
 ## -------------------------------------------------------------
 ##   Concentrated Maximum-Likelihood

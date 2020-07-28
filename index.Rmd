@@ -33,13 +33,13 @@ m = UC(log(ipi))
 plot(m$comp)
 ```
 
-A different call, more complex, would be as follows (just one model is estimated, the forecasting horizon is fixed at 24 months, verbose output is avoided, see the full set of options in the documentation):
+A different call, more complex, would be as follows (just one model is estimated, the forecasting horizon is fixed at 24 months, verbose output is avoided, see the full set of options in the documentation). As can be easily seen, the diagnostics tests indicate that this model is completely inappropriate:
 
 ```{r}
 m = UC(log(ipi), model = "rw/equal/arma(0,0)", h = 24, verbose = FALSE)
 ```
 
-Something that is very interesting in this case is the estimation with Easter and calendar effects (already loaded in matrix u) and with outlier detection:
+Something that is very interesting in this case is the estimation with Easter and calendar effects (already loaded in matrix u) and with outlier detection. Check out the diagnostics and now to see that this model is much more adequate:
 
 ```{r}
 m = UC(log(ipi), u = u, outlier = 4)

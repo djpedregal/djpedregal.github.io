@@ -307,8 +307,7 @@ $(document).ready(function () {
 <p>Now, the examples. First, just load the library and some data (monthly Spanish industrial production index) from January 2000 to December 2019. the last year of data is reserved to check forecasting performance.</p>
 <pre class="r"><code>library(UComp)</code></pre>
 <pre><code>## Loading required package: Rcpp</code></pre>
-<pre class="r"><code>library(ggplot2)
-load(&quot;ipi.Rdata&quot;)
+<pre class="r"><code>load(&quot;ipi.Rdata&quot;)
 ipi = ts(y[1 : 208], start = 2000, frequency = 12)
 plot(ipi)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
@@ -343,7 +342,7 @@ plot(ipi)</code></pre>
 ##          dt/none/different/none:  -2.7054  -2.3845  -2.6862
 ##     dt/none/different/arma(0,0):  -2.7569  -2.4200  -2.7377
 ## ------------------------------------------------------------
-##   Identification time:    1.87189 seconds
+##   Identification time:    2.12448 seconds
 ## ------------------------------------------------------------
 ## -------------------------------------------------------------
 ##   Concentrated Maximum-Likelihood
@@ -445,7 +444,7 @@ plot(ipi)</code></pre>
 ##          dt/none/different/none:  -3.8007  -3.4317  -3.7719
 ##     dt/none/different/arma(0,0):  -3.8254  -3.4403  -3.7966
 ## ------------------------------------------------------------
-##   Identification time:   10.67629 seconds
+##   Identification time:    9.44652 seconds
 ## ------------------------------------------------------------
 ## -------------------------------------------------------------
 ##   Concentrated Maximum-Likelihood

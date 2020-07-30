@@ -21,7 +21,7 @@ Now, the examples. First, just load the library and some data (monthly Spanish i
 
 ```{r}
 library(UComp)
-load("ipi.Rdata")
+load(url("https://github.com/djpedregal/djpedregal.github.io/blob/master/ipi.Rdata?raw=true"))
 ipi = ts(y[1 : 208], start = 2000, frequency = 12)
 plot(ipi)
 ```
